@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# === Configuration variables ===
+AMI_ID="ami-09c813fb71547fc4f"  # Replace with a valid AMI ID
+INSTANCE_TYPE="t3.micro"
+SECURITY_GROUP="sg-0746ed0a624642705"  # Replace with your security group ID
+TAG_NAME="MyDynamicInstance"
+
+# === Launch EC2 Instance ===
+INSTANCE_ID=$(aws ec2 run-instances \
+    --image-id $AMI_ID \
+    --instance-type $INSTANCE_TYPE \
+    --key-name $KEY_NAME \
+    --security-group-ids $SECURITY_GROUP \
+    --subnet-id $SUBNET_ID \
+    --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$TAG_NAME}]" \
+    --query "Instances[0].InstanceId" \
+    --output text)
+
+# === Wait for the instance to be running ===
+echo "Waiting for instance $INSTANCE_ID to enter 'running' state..."
+aws ec2 wait instance-running --instance-ids $INSTANCE_ID
+
+# === Get public IP of the instance ===
+PUBLIC_IP=$(aws ec2 describe-instances \
+    --instance-ids $INSTANCE_ID \
+    --query "Reservations[0].Instances[0].PublicIpAddress" \
+    --output text)
+
+echo "Instance $INSTANCE_ID is running at IP: $PUBLIC_IP"
