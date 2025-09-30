@@ -6,9 +6,9 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_FOLDER="/var/log/shell.script1"
+LOGS_FOLDER="/var/log/shell.srinivas"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell.srinu
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell.script1/16-logs.log
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
@@ -27,7 +27,7 @@ VALIDATE(){ # functions receive inputs through args just like shell script args
     fi
 }
 
-cp mongodb.sh /etc/yum.mongodb.sh
+cp shell.srinivas /etc/yum.repos.d/shell.srinivas
 VALIDATE $? "Adding Mongo repo"
 
 dnf install mongodb-org -y &>>$LOG_FILE
