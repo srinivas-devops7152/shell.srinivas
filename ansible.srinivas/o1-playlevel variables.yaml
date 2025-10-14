@@ -1,0 +1,11 @@
+-name: laylevel variables
+hosts: local
+connections: local # Ansible is connecting to local host
+vars:
+course: Ansible
+duration: 10hRs
+Trainer: siva kumar reddy
+tasks: 
+-name: print the course info
+ansible.builtin.debug:
+msg: "course name is : {{course}}", Duration : {{DURATION}}, Trainer : {{TRAINER}}
