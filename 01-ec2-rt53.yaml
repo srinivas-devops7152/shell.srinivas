@@ -1,5 +1,5 @@
 - name: create ec2 and r53
-  hosts: ansible
+  hosts: local
   connection: local
   vars:
     ami_id: ami-09c813fb71547fc4f
