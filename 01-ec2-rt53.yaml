@@ -14,7 +14,7 @@
     # - rabbitmq
   tasks:
   - name: create ec2 instance
-     msg: "{{ instances is undefined . instances is undefined }}" 
+      msg: "{{ 'instances is undefined' . 'instances is undefined' }}" 
     amazon.aws.ec2_instance:
       name: "{{ item }}"
       instance_type: t3.micro
