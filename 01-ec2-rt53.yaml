@@ -8,10 +8,10 @@
     domain_name: "srinivas.icu"
     # we can pass instances through command line using -e
     # instances: 
-     - mongodb
-     - redis
-     - mysql
-     - rabbitmq
+    # - mongodb
+    # - redis
+    # - mysql
+    # - rabbitmq
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:
