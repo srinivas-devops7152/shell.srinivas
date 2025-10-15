@@ -13,10 +13,9 @@ ansible.builtin.debug:
 msg: "hello,{{name|default('Ramesh')}}"
 
 #string to list
--name: convert string to lists
+-name: convert string to list
 ansible.builtin.debug:
 msg: "Technologies are :{{technologies | split (',')}}"
- -name : convert map to lists
+ -name : convert map to list
  ansible.bultin.debug:
  msg: "Tags are : {{}}"
- 
