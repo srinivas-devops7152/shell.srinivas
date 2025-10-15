@@ -1,0 +1,22 @@
+-name: functions
+hosts: local
+connections: local
+vars:
+technologies: Devops,Linux,Ansible,Shell,Roboshop #string
+#dictionary == map
+tags:
+Applications: payment
+Environment: Dev
+tasks:
+-name: default variables 
+ansible.builtin.debug:
+msg: "hello,{{name|default('Ramesh')}}"
+
+#string to list
+-name: convert string to lists
+ansible.builtin.debug:
+msg: "Technologies are :{{technologies | split (',')}}"
+ -name : convert map to lists
+ ansible.bultin.debug:
+ msg: "Tags are : {{}}"
+ 
