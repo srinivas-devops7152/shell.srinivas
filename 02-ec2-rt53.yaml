@@ -13,7 +13,6 @@
         name: "{{ instance_name }}"
         instance_type: "{{ instance_type }}"
         image_id: "{{ ami_id }}"
-        region: "{{ aws_region }}"
         wait: yes
         count: 1
         security_group: "{{ security_group }}"
@@ -34,4 +33,4 @@
         type: A
         ttl: 0
         value: "{{ ec2_public_ip }}"
-        aws_region: "{{ aws_region }}"
+        
