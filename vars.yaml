@@ -1,0 +1,7 @@
+aws_region: us-east-1
+instance_type: t3.micro
+ami_id: ami-09c813fb71547fc4f  # Replace with a valid AMI ID
+security_group: sg-0746ed0a624642705
+instance_name: my-ec2-instance 
+hosted_ zone_id: "Z00489033EEWV82UHGKQ9" # replace with your ID
+record_name: srinivas.icu
