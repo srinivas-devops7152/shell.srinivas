@@ -25,7 +25,7 @@
       set_fact:
         ec2_public_ip: "{{ ec2.instances[0].public_ip_address }}"
 
-    - name: Create a Route53  record
+    - name: Create  Route53  record
       community.aws.route53:
         state: present
         zone: "{{ hosted_zone_name }}"
