@@ -1,7 +1,8 @@
 - name: create ec2 instances and r53 records
   hosts: localhost
   connection: local
-  instances:
+  vars:
+   instances:
     - mongodb
     - redis
     - mysql
