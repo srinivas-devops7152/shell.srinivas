@@ -21,11 +21,6 @@
           Name: "{{ instance_name }}"
       register: ec2
 
-    - name: Set public IP as a fact (only if available)
-      set_fact:
-      ec2_ip: "{{ ec2.instances[0].public_ip_address | default('') }}"
-
-
     - name: Create  Route53  record
       community.aws.route53:
         state: present
