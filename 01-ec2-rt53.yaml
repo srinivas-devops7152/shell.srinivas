@@ -1,12 +1,8 @@
 - name: create ec2 and r53
   hosts: local
   connection: local
-  vars:
-    ami_id: ami-09c813fb71547fc4f
-    sg_id: sg-0746ed0a624642705 # replace with your SG ID
-    zone_id: "Z00489033EEWV82UHGKQ9" # replace with your ID
-    domain_name: "srinivas.icu"
-    
+  vars_files: vars.yaml
+      
   tasks:
   - name: create ec2 instance
     amazon.aws.ec2_instance:

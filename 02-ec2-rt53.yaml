@@ -3,9 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: no
-  vars_files:
-    - vars.yaml
-
+  vars_files:                                                                                                                                                                                                                           - vars.yaml
   tasks:
 
     - name: Launch EC2 instance
@@ -19,7 +17,7 @@
         tags:
           Environment: Test
           Name: "{{ instance_name }}"
-      register: ec2
+          register: ec2
 
     - name: Create  Route53  record
       community.aws.route53:
