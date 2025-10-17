@@ -1,7 +1,6 @@
-- name: create ec2 instance and r53 record
+- name: create ec2 instances and r53 records
   hosts: local
   connection: local 
-  becom: yes
 
   vars_files: 
       vars.yaml
