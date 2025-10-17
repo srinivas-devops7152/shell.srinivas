@@ -33,13 +33,13 @@
 
     - name: create route53 record
       amazon.aws.route53:
-      state: present
-      zone: "{{ domain_name }}"
-      record: "{{ item.item }}.{{ domain_name }}" # mongodb.srinivas.icu
-      type: A
-      ttl: 1
-      value: "{{ item.instances[0].private_ip_address }}"
-      overwrite: true
+       state: present
+       zone: "{{ domain_name }}"
+       record: "{{ item.item }}.{{ domain_name }}" # mongodb.srinivas.icu
+       type: A
+       ttl: 1
+       value: "{{ item.instances[0].private_ip_address }}"
+       overwrite: true
       loop: "{{ ec2_output.results }}"
 
   # we are creating one record with public only for frontend
