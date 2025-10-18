@@ -6,4 +6,6 @@ instance_name: my-ec2-instance
 domain_name: srinivas.icu
 record_name: ansible1.srinivas.icu
 instances:
-  - raditmq
+  - catalogue
+  - user
+  - cart
